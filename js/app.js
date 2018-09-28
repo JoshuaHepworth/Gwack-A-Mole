@@ -34,8 +34,10 @@ const game = {
 		this.player2 = new Player(player2Name)
 		$('#player1-display').append(this.player1.name)
 		$('#player1-name').hide()
+		$('.ready1').hide()
 		$('#player2-display').append(this.player2.name)
 		$('#player2-name').hide()
+		$('.ready2').hide()
 		this.startTimer();
 	},
 	printStats() {
@@ -63,9 +65,95 @@ const game = {
  	}
  }
 // console.log(game.startTimer())
-
-$(".ready1").on("click", (e) => {
-    $(".ready2").on("click", () => {
+// const ready1Button
+// const ready2Button = $('.ready2')
+$(".ready1").on("click", () => {
+	$('.ready1').hide()
+   	$(".ready2").on("click", () => {
+    	$('.ready2').hide()
     	game.start()
     }) 
 });
+// const ready1Button = $(".ready1").on("click", () => {
+    
+//     })
+// const ready2Button = $(".ready1").on("click", () => {
+   
+//     })
+
+// if(ready1Button && ready2Button) {
+// 	game.start();
+// }
+//PLAYER 1 BUTTONS
+$(document).on("keydown", (e) => {
+    if (e.keyCode === 81) {
+        console.log('Q')
+    }
+});
+$(document).on("keydown", (e) => {
+    if (e.keyCode === 87) {
+        console.log('W')
+    }
+});
+$(document).on("keydown", (e) => {
+    if (e.keyCode === 69) {
+        console.log('E')
+    }
+});
+$(document).on("keydown", (e) => {
+    if (e.keyCode == 65) {
+        console.log('A')
+    }
+});
+$(document).on("keydown", (e) => {
+    if (e.keyCode == 83) {
+        console.log('S')
+    }
+});
+$(document).on("keydown", (e) => {
+    if (e.keyCode == 68) {
+        console.log('D')
+    }
+});
+//PLAYER 2 BUTTONS
+$(document).on("keydown", (e) => {
+    if (e.keyCode == 73) {
+        console.log('I')
+    }
+});
+$(document).on("keydown", (e) => {
+    if (e.keyCode == 79) {
+        console.log('O')
+    }
+});
+$(document).on("keydown", (e) => {
+    if (e.keyCode == 80) {
+        console.log('P')
+    }
+});
+$(document).on("keydown", (e) => {
+    if (e.keyCode == 75) {
+        console.log('K')
+    }
+});
+$(document).on("keydown", (e) => {
+    if (e.keyCode == 76) {
+        console.log('L')
+    }
+});
+$(document).on("keydown", (e) => {
+    if (e.keyCode == 186) {
+        console.log(';')
+    }
+});
+
+// player 1
+// 81=q
+// 87=w
+// 69=e
+// a 65
+// s 83
+// d 68
+
+
+
