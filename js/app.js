@@ -68,9 +68,10 @@ const game = {
 // const ready1Button
 // const ready2Button = $('.ready2')
 $(".ready1").on("click", () => {
-	$('.ready1').hide()
-   	$(".ready2").on("click", () => {
-    	$('.ready2').hide()
+	$(".ready1").hide()
+
+    $(".ready2").on("click", () => {
+    	$(".ready1").hide()
     	game.start()
     }) 
 });
