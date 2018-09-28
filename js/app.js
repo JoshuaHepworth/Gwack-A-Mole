@@ -34,5 +34,17 @@ const game = {
 		$('#player2-display').append(this.player2.name)
 		$('#player2-name').hide()
 		this.startTimer();
+	},
+	printStats() {
+		$('#tomatoes').text(this.player1.tomatoes)
+		$('#tomatoes').text(this.player2.tomatoes)
+		$('#onions').text(this.player1.onions)
+		$('#onions').text(this.player2.onions)
+		$('#avocados').text(this.player1.avocados)
+		$('#avocados').text(this.player2.avocados)
+		$('#limes').text(this.player1.limes)
+		$('#limes').text(this.player2.limes)
+		$('#total-points').text(this.player1.totalPoints)
+		$('#total-points').text(this.player2.totalPoints
 	}
 }
