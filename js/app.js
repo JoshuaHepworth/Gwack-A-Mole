@@ -8,6 +8,7 @@ class Player {
 		this.onions = 0;
 		this.avocados = 0;
 		this.lime = 10;
+		this.ready = false;
 	}
 	whack(){
 		console.log('whack works');
@@ -27,11 +28,11 @@ const game = {
 	timer: 0,
 	player1: null,
 	player2: null,
-	start() {
-		const player1Name = $('#player1-name').val()
-		const player2Name = $('#player2-name').val()
-		this.player1 = new Player(player1Name)
-		this.player2 = new Player(player2Name)
+	start() { console.log("start")
+		// const player1Name = $('#player1-name').val()
+		// const player2Name = $('#player2-name').val()
+		// this.player1 = new Player(player1Name)
+		// this.player2 = new Player(player2Name)
 		$('#player1-display').append(this.player1.name)
 		$('#player1-name').hide()
 		$('.ready1').hide()
@@ -39,6 +40,11 @@ const game = {
 		$('#player2-name').hide()
 		$('.ready2').hide()
 		this.startTimer();
+	},
+	readyUp() {
+		if(this.player1.ready === true && this.player2.ready === true){
+
+		}
 	},
 	printStats() {
 		$('#timer').text(this.timer)
@@ -68,86 +74,61 @@ const game = {
 // const ready1Button
 // const ready2Button = $('.ready2')
 $(".ready1").on("click", () => {
+	const player1Name = $('#player1-name').val()
+	game.player1 = new Player(player1Name)
+	$('#player1-display').append(game.player1.name)
+	$('#player1-name').hide()
 	$(".ready1").hide()
 
-    $(".ready2").on("click", () => {
-    	$(".ready1").hide()
-    	game.start()
-    }) 
 });
-// const ready1Button = $(".ready1").on("click", () => {
-    
-//     })
-// const ready2Button = $(".ready1").on("click", () => {
-   
-//     })
+$(".ready2").on("click", () => {
+	const player2Name = $('#player2-name').val()
+	game.player2 = new Player(player2Name)
+	$('#player2-display').append(game.player2.name)
+	$('#player2-name').hide()
+	$(".ready2").hide()
+}) 
 
-// if(ready1Button && ready2Button) {
-// 	game.start();
-// }
 //PLAYER 1 BUTTONS
 $(document).on("keydown", (e) => {
     if (e.keyCode === 81) {
         console.log('Q')
-    }
-});
-$(document).on("keydown", (e) => {
+    };
     if (e.keyCode === 87) {
         console.log('W')
-    }
-});
-$(document).on("keydown", (e) => {
+    };
     if (e.keyCode === 69) {
         console.log('E')
-    }
-});
-$(document).on("keydown", (e) => {
+    };
     if (e.keyCode == 65) {
         console.log('A')
-    }
-});
-$(document).on("keydown", (e) => {
+    };
     if (e.keyCode == 83) {
         console.log('S')
-    }
-});
-$(document).on("keydown", (e) => {
+    };
     if (e.keyCode == 68) {
         console.log('D')
-    }
-});
+    };
 //PLAYER 2 BUTTONS
-$(document).on("keydown", (e) => {
     if (e.keyCode == 73) {
         console.log('I')
-    }
-});
-$(document).on("keydown", (e) => {
+    };
     if (e.keyCode == 79) {
         console.log('O')
-    }
-});
-$(document).on("keydown", (e) => {
+    };
     if (e.keyCode == 80) {
         console.log('P')
-    }
-});
-$(document).on("keydown", (e) => {
+    };
     if (e.keyCode == 75) {
         console.log('K')
-    }
-});
-$(document).on("keydown", (e) => {
+    };
     if (e.keyCode == 76) {
         console.log('L')
-    }
-});
-$(document).on("keydown", (e) => {
+    };
     if (e.keyCode == 186) {
         console.log(';')
-    }
-});
-
+	}
+})
 // player 1
 // 81=q
 // 87=w

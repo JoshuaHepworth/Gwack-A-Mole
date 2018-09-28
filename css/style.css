@@ -2,11 +2,11 @@ body {
 	background-image: url('http://pixelartmaker.com/art/c4af2b8cd4bdf02.png');
 	/*background-image: url('http://pixelartmaker.com/art/c4af2b8cd4bdf02.png');*/
 	/*background-image: url('http://pixelartmaker.com/art/c4af2b8cd4bdf02.png');*/
-	background-repeat: repeat-x;
+	/*background-repeat: repeat-x;*/
 }
 
-/*.grass {
+.grass < div {
 	height: 200px;
 	width: 200px;
 	color: rgb(50, 212, 53)
-}*/
+}
