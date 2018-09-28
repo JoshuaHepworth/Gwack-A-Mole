@@ -53,6 +53,7 @@ const game = {
 	},
 	startTimer(){
 		this.interval = setInterval(() => {
+			// this.printStats();
 			this.timer++;
 			if(this.timer === 100){
 				clearInterval(interval);
