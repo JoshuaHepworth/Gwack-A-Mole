@@ -1,7 +1,8 @@
 //players class
-
+console.log('whack a mole')
 class Player {
 	constructor(name){
+		this.name = name;
 		this.totalPoints = 0;
 		this.tomatoes = 0;
 		this.onions = 0;
@@ -19,9 +20,11 @@ class Player {
 	}
 }
 
+
+
 const game = {
 	interval: null,
-	runTime: 0,
+	timer: 0,
 	player1: null,
 	player2: null,
 	start() {
@@ -36,15 +39,45 @@ const game = {
 		this.startTimer();
 	},
 	printStats() {
+		$('#timer').text(this.timer)
 		$('#tomatoes').text(this.player1.tomatoes)
-		$('#tomatoes').text(this.player2.tomatoes)
+		$('#tomatoes2').text(this.player2.tomatoes)
 		$('#onions').text(this.player1.onions)
-		$('#onions').text(this.player2.onions)
+		$('#onions2').text(this.player2.onions)
 		$('#avocados').text(this.player1.avocados)
-		$('#avocados').text(this.player2.avocados)
+		$('#avocados2').text(this.player2.avocados)
 		$('#limes').text(this.player1.limes)
-		$('#limes').text(this.player2.limes)
+		$('#limes2').text(this.player2.limes)
 		$('#total-points').text(this.player1.totalPoints)
-		$('#total-points').text(this.player2.totalPoints
-	}
-}
+		$('#total-points2').text(this.player2.totalPoints)
+	},
+	startTimer(){
+		this.interval = setInterval(() => {
+			this.timer++;
+			if(this.timer === 100){
+				clearInterval(interval);
+			}
+				$('#timer').text('Time: ' + this.timer + 's');
+		}, 1000)
+ 	}
+ }
+// console.log(game.startTimer())
+
+
+console.log(game.startTimer())
+
+
+
+
+// const setTimer = () => {
+//     const interval = setInterval(()=>{
+//         time++;
+//     if(time === 60){
+//         clearInterval(interval);
+
+//      }
+//          $('#timer').text('Timer ' + time + 's');
+//     }, 1000)
+
+// };
+// console.log(setTimer())
