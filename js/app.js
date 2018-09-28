@@ -23,7 +23,7 @@ class Player {
 
 
 const game = {
-	interval: null,
+	interval: 0,
 	timer: 0,
 	player1: null,
 	player2: null,
@@ -55,30 +55,17 @@ const game = {
 		this.interval = setInterval(() => {
 			// this.printStats();
 			this.timer++;
-			if(this.timer === 100){
-				clearInterval(interval);
+			if(this.timer === 60){
+				clearInterval(this.interval);
 			}
 				$('#timer').text('Time: ' + this.timer + 's');
-		}, 1000)
+		}, 100)
  	}
  }
 // console.log(game.startTimer())
 
-
-console.log(game.startTimer())
-
-
-
-
-// const setTimer = () => {
-//     const interval = setInterval(()=>{
-//         time++;
-//     if(time === 60){
-//         clearInterval(interval);
-
-//      }
-//          $('#timer').text('Timer ' + time + 's');
-//     }, 1000)
-
-// };
-// console.log(setTimer())
+$(".ready1").on("click", (e) => {
+    $(".ready2").on("click", () => {
+    	game.start()
+    }) 
+});
