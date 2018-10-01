@@ -24,35 +24,25 @@ class Player {
 
 
 const game = {
+	// timeout: 5,
+	// timerDown: 5,
 	ready1: false,
 	ready2: false,
 	interval: 0,
 	timer: 0,
 	player1: null,
 	player2: null,
-	start() { console.log("start")
-		// const player1Name = $('#player1-name').val()
-		// const player2Name = $('#player2-name').val()
-		// this.player1 = new Player(player1Name)
-		// this.player2 = new Player(player2Name)
-		// $('#player1-display').append(this.player1.name)
-		// $('#player1-name').hide()
-		// $('.ready1').hide()
-		// $('#player2-display').append(this.player2.name)
-		// $('#player2-name').hide()
-		// $('.ready2').hide()
-		this.startTimer();
+	start() { 
+		console.log("start")
+		this.countDown();
+		// this.startTimer();
 	},
 	readyUp() {
-		if(this.ready1 === true && this.ready2 === true) {
-		this.start();
-	}
+		if(this.ready1 === true && this.ready2 === true){
+			// this.countDown()
+			this.start();
+		}
 	},
-	// readyUp2() {
-	// 	if(this.ready2 === true) {
-	// 	this.start();
-	// }
-	// },
 	printStats() {
 		$('#timer').text(this.timer)
 		$('#tomatoes').text(this.player1.tomatoes)
@@ -66,20 +56,28 @@ const game = {
 		$('#total-points').text(this.player1.totalPoints)
 		$('#total-points2').text(this.player2.totalPoints)
 	},
+	countDown() {
+		let timeout = 4;
+		let timerDown = setInterval(() => {
+			timeout--;
+			$('#count-down').text(timeout)
+			if(timeout === 0) {
+				$('#count-down').text('GUACAMOLE!')
+				clearInterval(timerDown);
+				this.startTimer()
+			}
+		}, 1000)
+	},
 	startTimer(){
 		this.interval = setInterval(() => {
-			// this.printStats();
 			this.timer++;
+			$('#timer').text('Time: ' + this.timer + 's');
 			if(this.timer === 60){
 				clearInterval(this.interval);
 			}
-				$('#timer').text('Time: ' + this.timer + 's');
-		}, 100)
+		}, 1000)
  	}
  }
-// console.log(game.startTimer())
-// const ready1Button
-// const ready2Button = $('.ready2')
 $(".ready1").on("click", () => {
 	const player1Name = $('#player1-name').val()
 	game.player1 = new Player(player1Name)
