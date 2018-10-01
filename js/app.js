@@ -99,6 +99,21 @@ $(".ready2").on("click", () => {
 	game.ready2 = true;
 	game.readyUp()
 }) 
+//APPENDING ALL PICTURES TO SLOTS
+//HIDDEN IMAGES IN SLOTS PLAYER 1
+$('#player1slot1').hide()
+$('#player1slot2').hide()
+$('#player1slot3').hide()
+$('#player1slot4').hide()
+$('#player1slot5').hide()
+$('#player1slot6').hide()
+//HIDDEN IMAGES IN SLOTS PLAYER 2
+$('#player2slot1').hide()
+$('#player2slot2').hide()
+$('#player2slot3').hide()
+$('#player2slot4').hide()
+$('#player2slot5').hide()
+$('#player2slot6').hide()
 
 //PLAYER 1 BUTTONS
 $(document).on("keydown", (e) => {

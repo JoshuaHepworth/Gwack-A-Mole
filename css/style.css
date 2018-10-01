@@ -13,16 +13,22 @@ body {
 	color: rgb(50, 212, 53)
 }
 img {
-	height: 40px;
-	width: 40px;
-	border: 2px solid black;
+	height: 50px;
+	width: 50px;
+	/*border: 2px solid black;*/
+}
+#lime-pic1 {
+	/*border: 2px solid black;*/
+	/*margin: 8px;*/
+	/*padding: 10px;*/
 }
 .player1-container {
 	background-image: url("https://i.imgur.com/11cZ0qj.png?1");
-	background-color: white;
+	background-color: black;
 	position: relative;
 	width: 520px;
 	height: 640px;
+	padding: 20px;
 
 }
 #player1slot1 {
@@ -79,6 +85,7 @@ img {
 	position: relative;
 	width: 520px;
 	height: 640px;
+	padding: 20px;
 }
 #player2slot1 {
 	position: absolute;
@@ -135,6 +142,7 @@ img {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
+	background-color: black;
 }
 #total-points1 {
 	color: white;
@@ -151,15 +159,14 @@ img {
 	bottom: 230px;
 	left: 65%;
 	width: 30%;
-    border: 3px solid #8AC007;
+    /*border: 3px solid #8AC007;*/
 }
 #count-down {
-	display: center;
 	color: red;
-	/*position: fixed;*/
-	bottom: 600px;
-	left: 22%;
-	font-size: 80pt;
+	/*position: absolute;*/
+	left: 42%;
+	bottom: 800px;
+	font-size: 50pt;
 	text-shadow:
 		-1px -1px 0 #000,
 		5px -1px 0 #000,
