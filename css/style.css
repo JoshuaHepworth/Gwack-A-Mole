@@ -25,17 +25,108 @@ img {
 	height: 640px;
 
 }
+#player1slot1 {
+	position: absolute;
+	left: 84px;
+	top: 385px;
+	height: 50px;
+	width: 50px;
+	background-color: red;
+}
+#player1slot2 {
+	position: absolute;
+	left: 245px;
+	top: 385px;
+	height: 50px;
+	width: 50px;
+	background-color: red;
+}
+#player1slot3 {
+	position: absolute;
+	left: 406px;
+	top: 385px;
+	height: 50px;
+	width: 50px;
+	background-color: red;
+}
+#player1slot4 {
+	position: absolute;
+	left: 84px;
+	top: 525px;
+	height: 50px;
+	width: 50px;
+	background-color: red;
+}
+#player1slot5 {
+	position: absolute;
+	left: 245px;
+	top: 525px;
+	height: 50px;
+	width: 50px;
+	background-color: red;
+}
+#player1slot6 {
+	position: absolute;
+	left: 406px;
+	top: 525px;
+	height: 50px;
+	width: 50px;
+	background-color: red;
+}
 .player2-container {
 	background-image: url("https://i.imgur.com/11cZ0qj.png?1");
 	background-color: white;
 	position: relative;
 	width: 520px;
-	height: 640px;}
-
-#fruit {
+	height: 640px;
+}
+#player2slot1 {
 	position: absolute;
-	left: 90px;
-	top: 390px;
+	left: 84px;
+	top: 385px;
+	height: 50px;
+	width: 50px;
+	background-color: blue;
+}
+#player2slot2 {
+	position: absolute;
+	left: 245px;
+	top: 385px;
+	height: 50px;
+	width: 50px;
+	background-color: blue;
+}
+#player2slot3 {
+	position: absolute;
+	left: 406px;
+	top: 385px;
+	height: 50px;
+	width: 50px;
+	background-color: blue;
+}
+#player2slot4 {
+	position: absolute;
+	left: 84px;
+	top: 525px;
+	height: 50px;
+	width: 50px;
+	background-color: blue;
+}
+#player2slot5 {
+	position: absolute;
+	left: 245px;
+	top: 525px;
+	height: 50px;
+	width: 50px;
+	background-color: blue;
+}
+#player2slot6 {
+	position: absolute;
+	left: 406px;
+	top: 525px;
+	height: 50px;
+	width: 50px;
+	background-color: blue;
 }
 .score-board > div, .score-board > p {
 	display: inline-block;
