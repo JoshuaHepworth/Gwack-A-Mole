@@ -19,13 +19,14 @@ img {
 }
 .player1-container {
 	display: flex;
-
+	background-color: white;
 	/*flex-direction: row-reverse;*/
 	/*justify-content: space-between;*/
 }
 .player2-container {
 	display: flex;
 	flex-direction: row-reverse;
+	background-color: white;
 	/*justify-content: space-between;*/
 }
 .players-container {
