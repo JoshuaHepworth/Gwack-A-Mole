@@ -77,7 +77,14 @@ const game = {
 			if(this.timer === 60){
 				clearInterval(this.interval);
 			}
+			if(this.timer === 2) {
+				$('#player1slot1').velocity('transition.whirlIn', 2000)
+			}
 		}, 1000)
+ 	},
+ 	showImages() {
+ 		$('#player1slot1').velocity('transition.whirlIn', 2000)
+ 		$('#player1slot1').fadeOut()
  	}
  }
 $(".ready1").on("click", () => {
@@ -114,7 +121,6 @@ $('#player2slot3').hide()
 $('#player2slot4').hide()
 $('#player2slot5').hide()
 $('#player2slot6').hide()
-
 //PLAYER 1 BUTTONS
 $(document).on("keydown", (e) => {
     if (e.keyCode === 81) {
