@@ -65,12 +65,14 @@ const game = {
 				$('#count-down').text('GUACAMOLE!')
 				clearInterval(timerDown);
 				this.startTimer()
+
 			}
 		}, 1000)
 	},
 	startTimer(){
 		this.interval = setInterval(() => {
 			this.timer++;
+			$('#count-down').hide()
 			$('#timer').text('Time: ' + this.timer + 's');
 			if(this.timer === 60){
 				clearInterval(this.interval);

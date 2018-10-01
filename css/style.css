@@ -1,11 +1,13 @@
 body {
-	background-image: url('http://pixelartmaker.com/art/c4af2b8cd4bdf02.png');
+	background-image: url("https://i.imgur.com/11cZ0qj.png?1");
 	/*background-image: url('http://pixelartmaker.com/art/c4af2b8cd4bdf02.png');*/
 	/*background-image: url('http://pixelartmaker.com/art/c4af2b8cd4bdf02.png');*/
-	/*background-repeat: repeat-x;*/
+	background-repeat: space;
+	background-color: black;
 }
 
-.grass < div {
+.grass {
+	display: flex
 	height: 200px;
 	width: 200px;
 	color: rgb(50, 212, 53)
@@ -17,6 +19,7 @@ img {
 }
 .player1-container {
 	display: flex;
+
 	/*flex-direction: row-reverse;*/
 	/*justify-content: space-between;*/
 }
@@ -29,4 +32,50 @@ img {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
+}
+#total-points1 {
+	color: white;
+	position: fixed;
+	bottom: 230px;
+	left: 0%;
+	width: 30%;
+    border: 3px solid #8AC007;
+
+}
+#total-points2 {
+	color: white;
+	position: fixed;
+	bottom: 230px;
+	left: 65%;
+	width: 30%;
+    border: 3px solid #8AC007;
+}
+#count-down {
+	display: center;
+	color: red;
+	position: fixed;
+	bottom: 600px;
+	left: 22%;
+	font-size: 80pt;
+	text-shadow:
+		-1px -1px 0 #000,
+		5px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+#timer {
+	color: white;
+	position: fixed;
+	bottom: 600px;
+	left: 42%;
+	font-size: 30pt;
+}
+.instructions {
+	font-size: 20pt;
+	position: fixed;
+	bottom: 10px;
+	left: 0%;
+	width: 50%;
+    border: 3px solid #8AC007;
+    background-color: goldenrod;
 }
