@@ -24,6 +24,8 @@ class Player {
 
 
 const game = {
+	ready1: false,
+	ready2: false,
 	interval: 0,
 	timer: 0,
 	player1: null,
@@ -33,19 +35,24 @@ const game = {
 		// const player2Name = $('#player2-name').val()
 		// this.player1 = new Player(player1Name)
 		// this.player2 = new Player(player2Name)
-		$('#player1-display').append(this.player1.name)
-		$('#player1-name').hide()
-		$('.ready1').hide()
-		$('#player2-display').append(this.player2.name)
-		$('#player2-name').hide()
-		$('.ready2').hide()
+		// $('#player1-display').append(this.player1.name)
+		// $('#player1-name').hide()
+		// $('.ready1').hide()
+		// $('#player2-display').append(this.player2.name)
+		// $('#player2-name').hide()
+		// $('.ready2').hide()
 		this.startTimer();
 	},
 	readyUp() {
-		if(this.player1.ready === true && this.player2.ready === true){
-
-		}
+		if(this.ready1 === true && this.ready2 === true) {
+		this.start();
+	}
 	},
+	// readyUp2() {
+	// 	if(this.ready2 === true) {
+	// 	this.start();
+	// }
+	// },
 	printStats() {
 		$('#timer').text(this.timer)
 		$('#tomatoes').text(this.player1.tomatoes)
@@ -79,6 +86,8 @@ $(".ready1").on("click", () => {
 	$('#player1-display').append(game.player1.name)
 	$('#player1-name').hide()
 	$(".ready1").hide()
+	game.ready1 = true;
+	game.readyUp()
 
 });
 $(".ready2").on("click", () => {
@@ -87,6 +96,8 @@ $(".ready2").on("click", () => {
 	$('#player2-display').append(game.player2.name)
 	$('#player2-name').hide()
 	$(".ready2").hide()
+	game.ready2 = true;
+	game.readyUp()
 }) 
 
 //PLAYER 1 BUTTONS
