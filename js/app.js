@@ -45,14 +45,14 @@ const game = {
 	},
 	printStats() {
 		$('#timer').text(this.timer)
-		$('#tomatoes').text(this.player1.tomatoes)
-		$('#tomatoes2').text(this.player2.tomatoes)
-		$('#onions').text(this.player1.onions)
-		$('#onions2').text(this.player2.onions)
-		$('#avocados').text(this.player1.avocados)
-		$('#avocados2').text(this.player2.avocados)
-		$('#limes').text(this.player1.limes)
-		$('#limes2').text(this.player2.limes)
+		$('#tomato1').text(this.player1.tomatoes)
+		$('#tomato2').text(this.player2.tomatoes)
+		$('#onion1').text(this.player1.onions)
+		$('#onion2').text(this.player2.onions)
+		$('#avocado1').text(this.player1.avocados)
+		$('#avocado2').text(this.player2.avocados)
+		$('#lime1').text(this.player1.limes)
+		$('#lime2').text(this.player2.limes)
 		$('#total-points').text(this.player1.totalPoints)
 		$('#total-points2').text(this.player2.totalPoints)
 	},
@@ -140,13 +140,7 @@ $(document).on("keydown", (e) => {
         console.log(';')
 	}
 })
-// player 1
-// 81=q
-// 87=w
-// 69=e
-// a 65
-// s 83
-// d 68
+
 
 
 
