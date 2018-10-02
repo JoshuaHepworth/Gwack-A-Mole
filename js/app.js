@@ -1,4 +1,13 @@
 //players class
+//THINGS STILL TO FINISH
+
+//Randomly pop up images at random times on random slots
+//Be able to keypress on images that are showing
+//when clicked apply score to related image
+//whoever has most points
+//if keypress is made without image displayed minus one to score
+//show winner
+
 console.log('whack a mole')
 class Player {
     constructor(name) {
@@ -24,7 +33,7 @@ class Player {
 
 
 const game = {
-    // timeout: 5,
+    timeout: 5,
     // timerDown: 5,
     ready1: false,
     ready2: false,
@@ -74,27 +83,47 @@ const game = {
             this.timer++;
             $('#count-down').hide()
             $('#timer').text('Time: ' + this.timer + 's');
+            this.showRandomImages()
             if (this.timer === 60) {
                 clearInterval(this.interval);
             }
             //if this.timer === Math.random? etc. show images
-            if (this.timer === 1) {
-                this.showRandomImages()
-            }
+            // if (this.timer === 1) {
+            //     this.showRandomImages()
+            // }
         }, 1000)
     },
-    //should i put all the append code for every picture in a function? is there an easier way to do it? Or a cleaner way?
-    //How would i do Math.random if items are not in a div?
-    // Math.floor((Math.random()*$('#player1slot1')));
-    //STORE IN A VARIABLE?
     showRandomImages() {
-       
-    }
+       //show random images in a random order at random times of the game.
+       // setTimeout(this.timedSlotOne, 1000)
+       // clearTimeout(this.timedSlotOne)
+       	let images = $("#player1slot1 img");
+		let arrLength = images.length;
+		let randomImageLimit;
+		let interval_speed = 1000;
+
+		setInterval(() =>{
+		randomImageLimit = Math.floor((Math.random() * arrLength) + 1);
+		for(i=0;i<arrLength;i++){
+		    let matchingDiv = images[i];
+		    if(matchingDiv.id == randomImageLimit){
+		        matchingDiv.setAttribute("class","showing square blue");
+		    }
+		    if(matchingDiv.id != randomImageLimit){
+		        matchingDiv.setAttribute("class","hiding square blue");
+		    }
+		}
+		}, interval_speed);
+    },
+	timedSlotOne() {
+	const $p1slot1 = $("#player1slot1 img");
+	const $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+}
 }
 
 //PLAYER 1 RANDOMLY GENERATES IMAGES
-const $p1slot1 = $("#player1slot1 img");
-const $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+// const $p1slot1 = $("#player1slot1 img");
+// const $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
 const $p1slot2 = $("#player1slot2 img");
 const $p1slot2random = $p1slot2.eq(Math.floor(Math.random()*$p1slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
