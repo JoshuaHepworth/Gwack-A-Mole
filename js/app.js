@@ -88,13 +88,50 @@ const game = {
     // Math.floor((Math.random()*$('#player1slot1')));
     //STORE IN A VARIABLE?
     showRandomImages() {
-       $('#player1slot1 .avocado').show().velocity('transition.bounceIn', 2000).fadeOut()
+       
     }
 }
+
+//PLAYER 1 RANDOMLY GENERATES IMAGES
 const $p1slot1 = $("#player1slot1 img");
-$p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+const $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
+const $p1slot2 = $("#player1slot2 img");
+const $p1slot2random = $p1slot2.eq(Math.floor(Math.random()*$p1slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
+const $p1slot3 = $("#player1slot3 img");
+const $p1slot3random = $p1slot3.eq(Math.floor(Math.random()*$p1slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+const $p1slot4 = $("#player1slot4 img");
+const $p1slot4random = $p1slot4.eq(Math.floor(Math.random()*$p1slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+const $p1slot5 = $("#player1slot5 img");
+const $p1slot5random = $p1slot5.eq(Math.floor(Math.random()*$p1slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+const $p1slot6 = $("#player1slot6 img");
+const $p1slot6random = $p1slot6.eq(Math.floor(Math.random()*$p1slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+//PLAYER 2 RANDOMLY GENERATES IMAGES
+
+const $p2slot1 = $("#player2slot1 img");
+const $p2slot1random = $p2slot1.eq(Math.floor(Math.random()*$p2slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+const $p2slot2 = $("#player2slot2 img");
+const $p2slot2random = $p2slot2.eq(Math.floor(Math.random()*$p2slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+const $p2slot3 = $("#player2slot3 img");
+const $p2slot3random = $p2slot3.eq(Math.floor(Math.random()*$p2slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+const $p2slot4 = $("#player2slot4 img");
+const $p2slot4random = $p2slot4.eq(Math.floor(Math.random()*$p2slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+const $p2slot5 = $("#player2slot5 img");
+const $p2slot5random = $p2slot5.eq(Math.floor(Math.random()*$p2slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+const $p2slot6 = $("#player2slot6 img");
+const $p2slot6random = $p2slot6.eq(Math.floor(Math.random()*$p2slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+// console.log($p2slot6random)
+//--------------------------------------------2
 $(".ready1").on("click", () => {
     const player1Name = $('#player1-name').val()
     game.player1 = new Player(player1Name)
