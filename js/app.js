@@ -78,7 +78,7 @@ const game = {
                 clearInterval(this.interval);
             }
             //if this.timer === Math.random? etc. show images
-            if (this.timer === 2) {
+            if (this.timer === 1) {
                 this.showRandomImages()
             }
         }, 1000)
@@ -91,6 +91,10 @@ const game = {
        $('#player1slot1 .avocado').show().velocity('transition.bounceIn', 2000).fadeOut()
     }
 }
+const $p1slot1 = $("#player1slot1 img");
+$p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+
 $(".ready1").on("click", () => {
     const player1Name = $('#player1-name').val()
     game.player1 = new Player(player1Name)
