@@ -30,6 +30,25 @@ class Player {
     }
 }
 
+class Fruit {
+	// constructor:
+
+		// let fruits = ['onion', 'avocado', 'tomato', 'lime'];
+
+	    // choose random fruit name from array, set a property
+
+    	// choose a random slot # (1-6), set a property
+    		// be sure to check first, if a fruit is already in that slot
+    		// (check in game.fruits)
+
+    	// concat the approp selector using the randly gen'd vals
+
+    	// put it on the screen jQuery
+
+    	// set a timer to destroy fruit
+    		// (remove it from game.fruits)
+    		// and hide with velocity
+}
 
 
 const game = {
@@ -42,6 +61,12 @@ const game = {
     timer: 0,
     player1: null,
     player2: null,
+
+    /// holds currently showing fruits
+    /// make a Fruit class, and ahve an array for all fruits here?
+    /// and also later maybe one for p2?
+    fruits: [],
+
     start() {
         console.log("start")
         this.countDown();
@@ -79,7 +104,7 @@ const game = {
             }
         }, 1000)
     },
-    startTimer() {
+    startTimerOld() {
         this.interval = setInterval(() => {
             this.timer++;
             $('#count-down').hide()
@@ -87,8 +112,16 @@ const game = {
             // this.showRandomImages()
             // this.displayRandomImages();
             if(this.timer % 3 === 0) {
-            	let $p1slot1 = $("#player1slot1 img");
-	   			let $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+            	this.show1Slot1()
+            	this.show1Slot3()
+            	this.show1Slot5()
+            }
+            if(this.timer % 4 === 0) {
+            	this.show1Slot2()
+            	this.show1Slot6()
+            }
+            if(this.timer % 5 === 0) {
+            	this.show1Slot4()
             }
             if (this.timer === 60) {
                 clearInterval(this.interval);
@@ -99,47 +132,48 @@ const game = {
             // }
         }, 1000)
     },
-    showRandomImages() {
-       //show random images in a random order at random times of the game.
-       // setTimeout(this.timedSlotOne, 1000)
-       // clearTimeout(this.timedSlotOne)
-  //      let $p1slot1 = $("#player1slot1 img");
-	 //   let $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-		// 	setInterval(() => {
-		// 	this.$p1slot1random;
-		// 	if(this.timer === 60){
-		// 		clearInterval(this.interval)
-		// 	}
-		// }, 5000)
+    startTimer() {
+        $('#count-down').hide()
+
+        this.interval = setInterval(() => {
+            this.timer++;
+
+            const fruit = new Fruit();
+            this.fruits.push(fruit);
+
+            $('#timer').text('Time: ' + this.timer + 's');
+
+            if (this.timer === 60) {
+                clearInterval(this.interval);
+            }
+        }, 1000)
     },
+    show1Slot1() {
+    	let $p1slot1 = $("#player1slot1 img");
+	   	let $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+    },
+    show1Slot2() {
+    	let $p1slot2 = $("#player1slot2 img");
+		let $p1slot2random = $p1slot2.eq(Math.floor(Math.random()*$p1slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+	},
+	show1Slot3() {
+		let $p1slot3 = $("#player1slot3 img");
+		let $p1slot3random = $p1slot3.eq(Math.floor(Math.random()*$p1slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+	},
+	show1Slot4() {
+		let $p1slot4 = $("#player1slot4 img");
+		let $p1slot4random = $p1slot4.eq(Math.floor(Math.random()*$p1slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+	},
+	show1Slot5() {
+		let $p1slot5 = $("#player1slot5 img");
+		let $p1slot5random = $p1slot5.eq(Math.floor(Math.random()*$p1slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+	},
+	show1Slot6() {
+		let $p1slot6 = $("#player1slot6 img");
+		let $p1slot6random = $p1slot6.eq(Math.floor(Math.random()*$p1slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+	}
 
-displayRandomImages() {
-	// let imageInterval = 8000;
-// 	let $p1slot1 = $("#player1slot1 img");
-// 	let $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 500).fadeOut()
-// 	// setInterval(this.$p1slot1random, this.imageInterval);
-// }
 }
-}
-
-//PLAYER 1 RANDOMLY GENERATES IMAGES
-// const $p1slot1 = $("#player1slot1 img");
-// const $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-const $p1slot2 = $("#player1slot2 img");
-const $p1slot2random = $p1slot2.eq(Math.floor(Math.random()*$p1slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-const $p1slot3 = $("#player1slot3 img");
-const $p1slot3random = $p1slot3.eq(Math.floor(Math.random()*$p1slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-const $p1slot4 = $("#player1slot4 img");
-const $p1slot4random = $p1slot4.eq(Math.floor(Math.random()*$p1slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-const $p1slot5 = $("#player1slot5 img");
-const $p1slot5random = $p1slot5.eq(Math.floor(Math.random()*$p1slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-const $p1slot6 = $("#player1slot6 img");
-const $p1slot6random = $p1slot6.eq(Math.floor(Math.random()*$p1slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
 //PLAYER 2 RANDOMLY GENERATES IMAGES
 
