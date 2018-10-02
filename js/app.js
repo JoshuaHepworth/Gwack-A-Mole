@@ -34,6 +34,7 @@ class Player {
 
 const game = {
     timeout: 5,
+    // imageInterval: 2000,
     // timerDown: 5,
     ready1: false,
     ready2: false,
@@ -83,7 +84,12 @@ const game = {
             this.timer++;
             $('#count-down').hide()
             $('#timer').text('Time: ' + this.timer + 's');
-            this.showRandomImages()
+            // this.showRandomImages()
+            // this.displayRandomImages();
+            if(this.timer % 3 === 0) {
+            	let $p1slot1 = $("#player1slot1 img");
+	   			let $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+            }
             if (this.timer === 60) {
                 clearInterval(this.interval);
             }
@@ -97,27 +103,22 @@ const game = {
        //show random images in a random order at random times of the game.
        // setTimeout(this.timedSlotOne, 1000)
        // clearTimeout(this.timedSlotOne)
-       	let images = $("#player1slot1 img");
-		let arrLength = images.length;
-		let randomImageLimit;
-		let interval_speed = 1000;
-
-		setInterval(() =>{
-		randomImageLimit = Math.floor((Math.random() * arrLength) + 1);
-		for(i=0;i<arrLength;i++){
-		    let matchingDiv = images[i];
-		    if(matchingDiv.id == randomImageLimit){
-		        matchingDiv.setAttribute("class","showing square blue");
-		    }
-		    if(matchingDiv.id != randomImageLimit){
-		        matchingDiv.setAttribute("class","hiding square blue");
-		    }
-		}
-		}, interval_speed);
+  //      let $p1slot1 = $("#player1slot1 img");
+	 //   let $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+		// 	setInterval(() => {
+		// 	this.$p1slot1random;
+		// 	if(this.timer === 60){
+		// 		clearInterval(this.interval)
+		// 	}
+		// }, 5000)
     },
-	timedSlotOne() {
-	const $p1slot1 = $("#player1slot1 img");
-	const $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+displayRandomImages() {
+	// let imageInterval = 8000;
+// 	let $p1slot1 = $("#player1slot1 img");
+// 	let $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 500).fadeOut()
+// 	// setInterval(this.$p1slot1random, this.imageInterval);
+// }
 }
 }
 
