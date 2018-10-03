@@ -35,22 +35,96 @@ class Fruit {
 
 		this.fruit = ['onion', 'avocado', 'tomato', 'lime'];
     	// choose a random slot # (1-6), set a property
-    		// be sure to check first, if a fruit is already in that slot
-    		// (check in game.fruits)
+    	// be sure to check first, if a fruit is already in that slot
+    	// (check in game.fruits)
+		
+		// REMINDER
+    	// ONLY PLAYER 1 FOR ONE
+    	// IGNORE PLAYER 2
+    	// DON'T DO PLAYER 2
+    	// ONLY PLAYER 1
+
+
+
+
+
+
+
+
+
+
+    	// let foundASlot = false
+
+    	// while (!foundASlot) {
+
+    		// randomly-choose a slot #
+
+    		// find out if that randomly chosen slot slot is taken
+
+    			// loop through game.fruits, (an array of Fruit objects, IOW, instances of the fruit class)
+
+    				// game.fruits[i] is an object that has properties slot, and randomFruit
+    				// see if game.fruits[i].slot is the same as the randomly generated number
+
+
+    		// if its taken
+
+    			// nothing
+
+    		// else 
+
+    			// we're done --- stop loop by making foundASlot True
+
+		// } // end while(!foundASlot)
+
+
+
+
+
+
+
+
+
+    	// add a chceck:  
+    	// if any fruits in game.fruits are in this slot #
+    	// get another slot #
 		this.slot = (Math.floor(Math.random()*6) + 1);
-		console.log(this.slot)
-    		
-		    // choose random fruit name from array, set a property
+		console.log(this.slot);
+
+
+
+
+
+		// choose random fruit name from array, set a property
 		this.randomFruit = this.fruit[Math.floor(Math.random() * this.fruit.length)];
-		console.log(this.randomFruit)
+		console.log(this.randomFruit);
 
     	// concat the approp selector using the randly gen'd vals
+    	const selector = '#player1slot'+this.slot + ' ' + '.' + this.randomFruit
+    	console.log(selector)
+
 
     	// put it on the screen jQuery
+    	$(selector).show().velocity('transition.bounceIn', 2000)//.fadeOut()
+
+
 
     	// set a timer to destroy fruit
-    		// (remove it from game.fruits)
+    		// (remove it from game.fruits) <--
     		// and hide with velocity
+
+
+
+	}
+
+	checkFruit() {
+		if($.inArray(this.fruits, this.slot) !== -1) {
+			console.log('is in array');
+		} else {
+			console.log('is Not in array')
+
+		}
+
 	}
 }
 
@@ -140,8 +214,18 @@ const game = {
             this.timer++;
             $('#count-down').hide()
             $('#timer').text('Time: ' + this.timer + 's');
+
             const fruit = new Fruit();
+
             this.fruits.push(fruit);
+
+   //          // this.fruit.checkFruit()
+   //          if($.inArray(this.fruits.randomFruit, game.fruit) !== -1) {
+			// 	console.log('is in array');
+			// } else {
+			// 	console.log('is Not in array')
+			
+		// }
 
             if (this.timer === 60) {
                 clearInterval(this.interval);
