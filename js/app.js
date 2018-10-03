@@ -71,7 +71,7 @@ class Fruit {
 				// we're done --- stop loop by making foundASlot True
 				foundASlot = true;
 			}
-			
+
 		 } // end while(!foundASlot)
 
 		// choose random fruit name from array, set a property
@@ -83,7 +83,7 @@ class Fruit {
     	console.log(selector)
 
     	// put it on the screen jQuery
-    	$(selector).show()//.velocity('transition.bounceIn', 800)
+    	$(selector).show().velocity('transition.bounceIn', 800)
 
 
     	// set a setTimeout to destroy fruit
@@ -93,7 +93,7 @@ class Fruit {
     		game.fruits.splice(-1,1)
 
     		// and hide //with velocity
-    		$(selector).hide()//.velocity('transition.bounceOut', 800)
+    		$(selector).hide().velocity('transition.bounceOut', 800)
     		
     	}, 1000)
 
