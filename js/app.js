@@ -41,6 +41,9 @@ class Fruit {
 
     	let foundASlot = false
 
+
+    	console.log(game.fruits)
+
 		while(foundASlot === false) {
 
 			// randomly-choose a slot #
@@ -68,6 +71,7 @@ class Fruit {
 				// we're done --- stop loop by making foundASlot True
 				foundASlot = true;
 			}
+			
 		 } // end while(!foundASlot)
 
 		// choose random fruit name from array, set a property
@@ -75,26 +79,40 @@ class Fruit {
 		console.log(this.randomFruit);
 
     	// concat the approp selector using the randly gen'd vals
-    	const selector = '#player1slot'+this.slot + ' ' + '.' + this.randomFruit
+    	const selector = '#player1slot' + this.slot + ' ' + '.' + this.randomFruit
     	console.log(selector)
 
     	// put it on the screen jQuery
-    	$(selector).show().velocity('transition.bounceIn', 800)
+    	$(selector).show()//.velocity('transition.bounceIn', 800)
 
-    	// set a timer to destroy fruit
+
+    	// set a setTimeout to destroy fruit
+    	setTimeout(() => {
+
     		// (remove it from game.fruits) <--
-    		// and hide with velocity
+    		game.fruits.splice(-1,1)
 
-	}
-	checkFruit() {
-		if($.inArray(this.fruits, this.slot) !== -1) {
-			console.log('is in array');
-		} else {
-			console.log('is Not in array')
+    		// and hide //with velocity
+    		$(selector).hide()//.velocity('transition.bounceOut', 800)
+    		
+    	}, 1000)
 
-		}
 
-	}
+
+	} // end constructor() 
+
+
+
+
+	// checkFruit() {
+	// 	if($.inArray(this.fruits, this.slot) !== -1) {
+	// 		console.log('is in array');
+	// 	} else {
+	// 		console.log('is Not in array')
+
+	// 	}
+
+	// }
 }
 
 const game = {
@@ -147,7 +165,7 @@ const game = {
                 // this.fruit.randomHole()
 
             }
-        }, 1000)
+        }, 100)
     },
     startTimerOld() {
         this.interval = setInterval(() => {
@@ -187,6 +205,11 @@ const game = {
 
             const fruit = new Fruit();
             this.fruits.push(fruit);
+
+
+
+
+
 
    //          // this.fruit.checkFruit()
    //          if($.inArray(this.fruits.randomFruit, game.fruit) !== -1) {
