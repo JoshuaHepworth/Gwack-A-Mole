@@ -31,15 +31,18 @@ class Player {
 }
 
 class Fruit {
-	// constructor:
+	constructor() {
 
-		// let fruits = ['onion', 'avocado', 'tomato', 'lime'];
-
-	    // choose random fruit name from array, set a property
-
+		this.fruit = ['onion', 'avocado', 'tomato', 'lime'];
     	// choose a random slot # (1-6), set a property
     		// be sure to check first, if a fruit is already in that slot
     		// (check in game.fruits)
+		this.slot = (Math.floor(Math.random()*6) + 1);
+		console.log(this.slot)
+    		
+		    // choose random fruit name from array, set a property
+		this.randomFruit = this.fruit[Math.floor(Math.random() * this.fruit.length)];
+		console.log(this.randomFruit)
 
     	// concat the approp selector using the randly gen'd vals
 
@@ -48,13 +51,11 @@ class Fruit {
     	// set a timer to destroy fruit
     		// (remove it from game.fruits)
     		// and hide with velocity
+	}
 }
-
 
 const game = {
     timeout: 5,
-    // imageInterval: 2000,
-    // timerDown: 5,
     ready1: false,
     ready2: false,
     interval: 0,
@@ -137,11 +138,10 @@ const game = {
 
         this.interval = setInterval(() => {
             this.timer++;
-
+            $('#count-down').hide()
+            $('#timer').text('Time: ' + this.timer + 's');
             const fruit = new Fruit();
             this.fruits.push(fruit);
-
-            $('#timer').text('Time: ' + this.timer + 's');
 
             if (this.timer === 60) {
                 clearInterval(this.interval);
