@@ -37,63 +37,38 @@ class Fruit {
     	// choose a random slot # (1-6), set a property
     	// be sure to check first, if a fruit is already in that slot
     	// (check in game.fruits)
-		
-		// REMINDER
-    	// ONLY PLAYER 1 FOR ONE
-    	// IGNORE PLAYER 2
-    	// DON'T DO PLAYER 2
-    	// ONLY PLAYER 1
+		this.slot = null;
 
+    	let foundASlot = false
 
+		while(foundASlot === false) {
 
+			// randomly-choose a slot #
+			this.slot = (Math.floor(Math.random()*6) + 1);
+			console.log(this.slot);
 
+			// find out if that randomly chosen slot is taken:
+			
+			let itsTaken = false;
+			// loop through game.fruits, (an array of Fruit objects, IOW, instances of the fruit class)
+			
+				// game.fruits[i] is an object that has properties slot, and randomFruit
 
-
-
-
-
-
-    	// let foundASlot = false
-
-    	// while (!foundASlot) {
-
-    		// randomly-choose a slot #
-
-    		// find out if that randomly chosen slot slot is taken
-
-    			// loop through game.fruits, (an array of Fruit objects, IOW, instances of the fruit class)
-
-    				// game.fruits[i] is an object that has properties slot, and randomFruit
-    				// see if game.fruits[i].slot is the same as the randomly generated number
-
-
-    		// if its taken
-
-    			// nothing
-
-    		// else 
-
-    			// we're done --- stop loop by making foundASlot True
-
-		// } // end while(!foundASlot)
-
-
-
-
-
-
-
-
-
-    	// add a chceck:  
-    	// if any fruits in game.fruits are in this slot #
-    	// get another slot #
-		this.slot = (Math.floor(Math.random()*6) + 1);
-		console.log(this.slot);
-
-
-
-
+				// see if game.fruits[i].slot is the same as the randomly generated number
+			for (let i = 0; i < game.fruits.length; i++) {
+				if(game.fruits[i].slot === this.slot) { 
+					itsTaken = true;
+				}
+			}  
+			
+			// if its taken
+			if(itsTaken){
+				// nothing
+			} else {
+				// we're done --- stop loop by making foundASlot True
+				foundASlot = true;
+			}
+		 } // end while(!foundASlot)
 
 		// choose random fruit name from array, set a property
 		this.randomFruit = this.fruit[Math.floor(Math.random() * this.fruit.length)];
@@ -103,20 +78,14 @@ class Fruit {
     	const selector = '#player1slot'+this.slot + ' ' + '.' + this.randomFruit
     	console.log(selector)
 
-
     	// put it on the screen jQuery
-    	$(selector).show().velocity('transition.bounceIn', 2000)//.fadeOut()
-
-
+    	$(selector).show().velocity('transition.bounceIn', 800)
 
     	// set a timer to destroy fruit
     		// (remove it from game.fruits) <--
     		// and hide with velocity
 
-
-
 	}
-
 	checkFruit() {
 		if($.inArray(this.fruits, this.slot) !== -1) {
 			console.log('is in array');
@@ -175,6 +144,7 @@ const game = {
                 $('#count-down').text('GUACAMOLE!')
                 clearInterval(timerDown);
                 this.startTimer()
+                // this.fruit.randomHole()
 
             }
         }, 1000)
@@ -216,7 +186,6 @@ const game = {
             $('#timer').text('Time: ' + this.timer + 's');
 
             const fruit = new Fruit();
-
             this.fruits.push(fruit);
 
    //          // this.fruit.checkFruit()
