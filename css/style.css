@@ -192,7 +192,7 @@ p > img {
 audio {
 	color: red;
 	position: absolute;
-	left: 680px;
+	left: 600px;
 	top: 200px;
 	height: 100px;
 	width: 200px;
@@ -200,9 +200,16 @@ audio {
 .winner {
 	color: white;
 	position: absolute;
-	left: 575px;
+	left: 600px;
 	top: 100px;
-	font-size: 40pt;
+	font-size: 30pt;
+}
+.winner-name {
+	color: white;
+	position: absolute;
+	left: 600px;
+	top: 150px;
+	font-size: 30pt;
 }
 /*.instructions {
 	font-size: 20pt;

@@ -201,9 +201,12 @@ const game = {
             if (this.timer === 10) {
                 $('#timer').text('TIMES UP!!!');
                 if(this.score < this.score2) {
-                    $('.winner').text('PLAYER 2 WINS')
+                    $('.winner').text('WINNER')
+                    $('.winner-name').text('PLAYER 2')
+
                 } if(this.score > this.score2) {
-                    $('.winner').text('PLAYER 1 WINS')
+                    $('.winner').text('WINNER')
+                    $('.winner-name').text('PLAYER 1')
                 } if(this.score === this.score2) {
                     $('.winner').text('TIE GAME')
                 }
@@ -231,6 +234,7 @@ const game = {
         // console.log(num, "<--comparing it to this")      
         if (this.fruits2[0].slot === num) {
             this.score2++;
+            console.log(this.fruits2[0].randomFruit);
             $('#total-points2').text('Score: ' + this.score2);
 
             console.log("-------------Huzzahhh !!!!")
