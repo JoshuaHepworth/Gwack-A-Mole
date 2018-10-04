@@ -25,7 +25,7 @@ class Player {
     win() {
 
     }
-    lose() {
+    lose() {s
 
     }
 }
@@ -34,6 +34,7 @@ class Fruit {
 	constructor() {
 
 		this.fruit = ['onion', 'avocado', 'tomato', 'lime'];
+
     	// choose a random slot # (1-6), set a property
     	// be sure to check first, if a fruit is already in that slot
     	// (check in game.fruits)
@@ -48,7 +49,7 @@ class Fruit {
 
 			// randomly-choose a slot #
 			this.slot = (Math.floor(Math.random()*6) + 1);
-			console.log(this.slot);
+			console.log(this.slot + 'this is the slot!');
 
 			// find out if that randomly chosen slot is taken:
 			
@@ -80,10 +81,13 @@ class Fruit {
 
     	// concat the approp selector using the randly gen'd vals
     	const selector = '#player1slot' + this.slot + ' ' + '.' + this.randomFruit
+        const selector2 = '#player2slot' + this.slot + ' ' + '.' + this.randomFruit
     	console.log(selector)
+        console.log(selector2)
 
     	// put it on the screen jQuery
     	$(selector).show().velocity('transition.bounceIn', 800)
+        $(selector2).show().velocity('transition.bounceIn', 800)
 
 
     	// set a setTimeout to destroy fruit
@@ -94,6 +98,7 @@ class Fruit {
 
     		// and hide //with velocity
     		$(selector).hide().velocity('transition.bounceOut', 800)
+            $(selector2).hide().velocity('transition.bounceOut', 800)
     		
     	}, 1000)
 
@@ -123,11 +128,13 @@ const game = {
     timer: 0,
     player1: null,
     player2: null,
+    score: 0,
 
     /// holds currently showing fruits
     /// make a Fruit class, and ahve an array for all fruits here?
     /// and also later maybe one for p2?
     fruits: [],
+    fruits2: [],
 
     start() {
         console.log("start")
@@ -140,19 +147,6 @@ const game = {
             this.start();
         }
     },
-    // printStats() {
-    // 	$('#timer').text(this.timer)
-    // 	$('#tomato1').text(this.player1.tomatoes)
-    // 	$('#tomato2').text(this.player2.tomatoes)
-    // 	$('#onion1').text(this.player1.onions)
-    // 	$('#onion2').text(this.player2.onions)
-    // 	$('#avocado1').text(this.player1.avocados)
-    // 	$('#avocado2').text(this.player2.avocados)
-    // 	$('#lime1').text(this.player1.limes)
-    // 	$('#lime2').text(this.player2.limes)
-    // 	$('#total-points').text(this.player1.totalPoints)
-    // 	$('#total-points2').text(this.player2.totalPoints)
-    // },
     countDown() {
         let timeout = 4;
         let timerDown = setInterval(() => {
@@ -204,72 +198,49 @@ const game = {
             $('#timer').text('Time: ' + this.timer + 's');
 
             const fruit = new Fruit();
+            // const fruit2 = new Fruit();
+            // this.fruits2.push(fruit2)
             this.fruits.push(fruit);
-
-
-
-
-
-
-   //          // this.fruit.checkFruit()
-   //          if($.inArray(this.fruits.randomFruit, game.fruit) !== -1) {
-			// 	console.log('is in array');
-			// } else {
-			// 	console.log('is Not in array')
-			
-		// }
-
-            if (this.timer === 60) {
+            if (this.timer === 30) {
                 clearInterval(this.interval);
             }
         }, 1000)
     },
-    show1Slot1() {
-    	let $p1slot1 = $("#player1slot1 img");
-	   	let $p1slot1random = $p1slot1.eq(Math.floor(Math.random()*$p1slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-    },
-    show1Slot2() {
-    	let $p1slot2 = $("#player1slot2 img");
-		let $p1slot2random = $p1slot2.eq(Math.floor(Math.random()*$p1slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-	},
-	show1Slot3() {
-		let $p1slot3 = $("#player1slot3 img");
-		let $p1slot3random = $p1slot3.eq(Math.floor(Math.random()*$p1slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-	},
-	show1Slot4() {
-		let $p1slot4 = $("#player1slot4 img");
-		let $p1slot4random = $p1slot4.eq(Math.floor(Math.random()*$p1slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-	},
-	show1Slot5() {
-		let $p1slot5 = $("#player1slot5 img");
-		let $p1slot5random = $p1slot5.eq(Math.floor(Math.random()*$p1slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-	},
-	show1Slot6() {
-		let $p1slot6 = $("#player1slot6 img");
-		let $p1slot6random = $p1slot6.eq(Math.floor(Math.random()*$p1slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-	}
+    player1Buttons(num) {
+    if (this.fruits[0].slot === num) {
+        // this.score++;
+    console.log("Huzzahhh !!!!")
+    // $('#total-points1').text('Total: ' + this.score + 's');
+// console.log(this.score)
 
+
+    }
+        console.log(this.fruits[0].slot + "this is the number I am comparing my params to!")
+        console.log(this.fruits[0])
+    // console.log(this.fruits[0].slot + 'this is the slot')
 }
 
+}//Game Close
+console.log()
 //PLAYER 2 RANDOMLY GENERATES IMAGES
 
-const $p2slot1 = $("#player2slot1 img");
-const $p2slot1random = $p2slot1.eq(Math.floor(Math.random()*$p2slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+// const $p2slot1 = $("#player2slot1 img");
+// const $p2slot1random = $p2slot1.eq(Math.floor(Math.random()*$p2slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
-const $p2slot2 = $("#player2slot2 img");
-const $p2slot2random = $p2slot2.eq(Math.floor(Math.random()*$p2slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+// const $p2slot2 = $("#player2slot2 img");
+// const $p2slot2random = $p2slot2.eq(Math.floor(Math.random()*$p2slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
-const $p2slot3 = $("#player2slot3 img");
-const $p2slot3random = $p2slot3.eq(Math.floor(Math.random()*$p2slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+// const $p2slot3 = $("#player2slot3 img");
+// const $p2slot3random = $p2slot3.eq(Math.floor(Math.random()*$p2slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
-const $p2slot4 = $("#player2slot4 img");
-const $p2slot4random = $p2slot4.eq(Math.floor(Math.random()*$p2slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+// const $p2slot4 = $("#player2slot4 img");
+// const $p2slot4random = $p2slot4.eq(Math.floor(Math.random()*$p2slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
-const $p2slot5 = $("#player2slot5 img");
-const $p2slot5random = $p2slot5.eq(Math.floor(Math.random()*$p2slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+// const $p2slot5 = $("#player2slot5 img");
+// const $p2slot5random = $p2slot5.eq(Math.floor(Math.random()*$p2slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
-const $p2slot6 = $("#player2slot6 img");
-const $p2slot6random = $p2slot6.eq(Math.floor(Math.random()*$p2slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+// const $p2slot6 = $("#player2slot6 img");
+// const $p2slot6random = $p2slot6.eq(Math.floor(Math.random()*$p2slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 // console.log($p2slot6random)
 //--------------------------------------------2
 $(".ready1").on("click", () => {
@@ -307,24 +278,41 @@ $('#player2slot4 img').hide()
 $('#player2slot5 img').hide()
 $('#player2slot6 img').hide()
 //PLAYER 1 BUTTONS
+// const player1Buttons = (num) => {
+//     if (game.fruits.slot === num) {
+//         score++
+//     console.log("Huzzahhh mf!!!!")
 
+
+//     }
+
+// }
 
 //if player1slot1 ingredient is hit, onion-pic1 ++
 $(document).on("keydown", (e) => {
     if (e.keyCode === 81) {
-        console.log('Q')
+        console.log('Q');
+        game.player1Buttons(1)
+
+        //if image is there while key is pressed
+        //score ++
     };
     if (e.keyCode === 87) {
+        game.player1Buttons(2)
         console.log('W')
+
     };
     if (e.keyCode === 69) {
         console.log('E')
+        game.player1Buttons(3)
     };
     if (e.keyCode == 65) {
         console.log('A')
+        game.player1Buttons(4)
     };
     if (e.keyCode == 83) {
         console.log('S')
+        game.player1Buttons(5)
     };
     if (e.keyCode == 68) {
         console.log('D')
