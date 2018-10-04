@@ -219,6 +219,7 @@ const game = {
         // console.log(num, "<--comparing it to this")      
         if (this.fruits[0].slot === num) {
             this.score++;
+            audio.play();
             $('#total-points1').text('Score: ' + this.score);
 
             console.log("-------------Huzzahhh !!!!")
@@ -250,6 +251,8 @@ const game = {
 
 //PLAYER 2 RANDOMLY GENERATES IMAGES
 }
+const audio = new Audio('http://peal.io/download/847x9')
+// audio.play();
 //--------------------------------------------2
 $(".ready1").on("click", () => {
     const player1Name = $('#player1-name').val()
