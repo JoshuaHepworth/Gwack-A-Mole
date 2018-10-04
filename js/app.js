@@ -353,25 +353,3 @@ $(document).on("keydown", (e) => {
         game.player2Buttons(6)
     }
 })
-// game.ready1 = true;
-// game.ready2 = true;
-// game.readyUp();
-
-// const $p2slot1 = $("#player2slot1 img");
-// const $p2slot1random = $p2slot1.eq(Math.floor(Math.random()*$p2slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-// const $p2slot2 = $("#player2slot2 img");
-// const $p2slot2random = $p2slot2.eq(Math.floor(Math.random()*$p2slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-// const $p2slot3 = $("#player2slot3 img");
-// const $p2slot3random = $p2slot3.eq(Math.floor(Math.random()*$p2slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-// const $p2slot4 = $("#player2slot4 img");
-// const $p2slot4random = $p2slot4.eq(Math.floor(Math.random()*$p2slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-// const $p2slot5 = $("#player2slot5 img");
-// const $p2slot5random = $p2slot5.eq(Math.floor(Math.random()*$p2slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-// const $p2slot6 = $("#player2slot6 img");
-// const $p2slot6random = $p2slot6.eq(Math.floor(Math.random()*$p2slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-// console.log($p2slot6random)
