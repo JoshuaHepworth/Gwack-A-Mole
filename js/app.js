@@ -31,35 +31,33 @@ class Player {
 }
 
 class Fruit {
-	constructor() {
-
-		this.fruit = ['onion', 'avocado', 'tomato', 'lime'];
+	constructor(player) {
+        this.player = player
+        // this.player = player
+		const fruit = ['onion', 'avocado', 'tomato', 'lime'];
+        // const fruit2 = ['onion', 'avocado', 'tomato', 'lime'];
 
     	// choose a random slot # (1-6), set a property
     	// be sure to check first, if a fruit is already in that slot
     	// (check in game.fruits)
 		this.slot = null;
+        // this.slot2 = null;
 
     	let foundASlot = false
-
-
-    	console.log(game.fruits)
-
 		while(foundASlot === false) {
 
 			// randomly-choose a slot #
 			this.slot = (Math.floor(Math.random()*6) + 1);
-			console.log(this.slot + 'this is the slot!');
+            // this.slot2 = (Math.floor(Math.random()*6) + 1);
+			
 
 			// find out if that randomly chosen slot is taken:
 			
 			let itsTaken = false;
 			// loop through game.fruits, (an array of Fruit objects, IOW, instances of the fruit class)
-			
+            for (let i = 0; i < game.fruits.length; i++) {
 				// game.fruits[i] is an object that has properties slot, and randomFruit
-
 				// see if game.fruits[i].slot is the same as the randomly generated number
-			for (let i = 0; i < game.fruits.length; i++) {
 				if(game.fruits[i].slot === this.slot) { 
 					itsTaken = true;
 				}
@@ -76,31 +74,32 @@ class Fruit {
 		 } // end while(!foundASlot)
 
 		// choose random fruit name from array, set a property
-		this.randomFruit = this.fruit[Math.floor(Math.random() * this.fruit.length)];
-		console.log(this.randomFruit);
+		this.randomFruit = fruit[Math.floor(Math.random() * fruit.length)];
+        // this.randomFruit2 = fruit2[Math.floor(Math.random() * fruit2.length)];
+
 
     	// concat the approp selector using the randly gen'd vals
-    	const selector = '#player1slot' + this.slot + ' ' + '.' + this.randomFruit
-        const selector2 = '#player2slot' + this.slot + ' ' + '.' + this.randomFruit
-    	console.log(selector)
-        console.log(selector2)
+    	const selector = '#player'+ this.player + 'slot' + this.slot + ' ' + '.' + this.randomFruit
+        // const selector2 = '#player2slot' + this.slot2 + ' ' + '.' + this.randomFruit2
 
     	// put it on the screen jQuery
-    	$(selector).show().velocity('transition.bounceIn', 800)
-        $(selector2).show().velocity('transition.bounceIn', 800)
-
+    	$(selector).show().velocity('transition.bounceIn', 200)
+        // $(selector2).show().velocity('transition.bounceIn', 200)
 
     	// set a setTimeout to destroy fruit
-    	setTimeout(() => {
+        setTimeout(() => {
 
     		// (remove it from game.fruits) <--
     		game.fruits.splice(-1,1)
+            game.fruits2.splice(-1,1)
+            // game.fruits2.splice(-1,1)
 
     		// and hide //with velocity
-    		$(selector).hide().velocity('transition.bounceOut', 800)
-            $(selector2).hide().velocity('transition.bounceOut', 800)
+    		$(selector).hide().velocity('transition.bounceOut', 200)
+            // $(selector2).hide().velocity('transition.bounceOut', 200)
     		
-    	}, 1000)
+    	}, 400)
+
 
 
 
@@ -119,7 +118,6 @@ class Fruit {
 
 	// }
 }
-
 const game = {
     timeout: 5,
     ready1: false,
@@ -129,10 +127,7 @@ const game = {
     player1: null,
     player2: null,
     score: 0,
-
-    /// holds currently showing fruits
-    /// make a Fruit class, and ahve an array for all fruits here?
-    /// and also later maybe one for p2?
+    score2: 0,
     fruits: [],
     fruits2: [],
 
@@ -159,7 +154,7 @@ const game = {
                 // this.fruit.randomHole()
 
             }
-        }, 100)
+        }, 1000)
     },
     startTimerOld() {
         this.interval = setInterval(() => {
@@ -197,51 +192,54 @@ const game = {
             $('#count-down').hide()
             $('#timer').text('Time: ' + this.timer + 's');
 
-            const fruit = new Fruit();
-            // const fruit2 = new Fruit();
-            // this.fruits2.push(fruit2)
+            const fruit = new Fruit(1);
+            const fruit2 = new Fruit(2);
+            this.fruits2.push(fruit2)
             this.fruits.push(fruit);
+            console.log(this.fruits)
+            // console.log(this.fruits2)
+
             if (this.timer === 30) {
+                $('#timer').text('TIMES UP!!!');
                 clearInterval(this.interval);
             }
-        }, 1000)
+        }, 1000);
     },
     player1Buttons(num) {
-    if (this.fruits[0].slot === num) {
-        // this.score++;
-    console.log("Huzzahhh !!!!")
-    // $('#total-points1').text('Total: ' + this.score + 's');
-// console.log(this.score)
+        // console.log(this.fruits[0].slot + " this is the number I am comparing my params to!")
+        // console.log(num, "<--comparing it to this")      
+        if (this.fruits[0].slot === num) {
+            this.score++;
+            $('#total-points1').text('Score: ' + this.score);
 
+            console.log("-------------Huzzahhh !!!!")
+            // console.log(this.score)
+      
+        }
 
+        // console.log(this.fruits[0])
+        // console.log(this.fruits[0].slot + 'this is the slot')
+    },
+    player2Buttons(num) {
+        // console.log(this.fruits[0].slot + " this is the number I am comparing my params to!")
+        // console.log(num, "<--comparing it to this")      
+        if (this.fruits2[0].slot === num) {
+            this.score2++;
+            $('#total-points2').text('Score: ' + this.score2);
+
+            console.log("-------------Huzzahhh !!!!")
+            // console.log(this.score)
+      
+        }
+
+        // console.log(this.fruits[0])
+        // console.log(this.fruits[0].slot + 'this is the slot')
     }
-        console.log(this.fruits[0].slot + "this is the number I am comparing my params to!")
-        console.log(this.fruits[0])
-    // console.log(this.fruits[0].slot + 'this is the slot')
-}
 
-}//Game Close
-console.log()
+// }//Game Close
+
 //PLAYER 2 RANDOMLY GENERATES IMAGES
-
-// const $p2slot1 = $("#player2slot1 img");
-// const $p2slot1random = $p2slot1.eq(Math.floor(Math.random()*$p2slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-// const $p2slot2 = $("#player2slot2 img");
-// const $p2slot2random = $p2slot2.eq(Math.floor(Math.random()*$p2slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-// const $p2slot3 = $("#player2slot3 img");
-// const $p2slot3random = $p2slot3.eq(Math.floor(Math.random()*$p2slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-// const $p2slot4 = $("#player2slot4 img");
-// const $p2slot4random = $p2slot4.eq(Math.floor(Math.random()*$p2slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-// const $p2slot5 = $("#player2slot5 img");
-// const $p2slot5random = $p2slot5.eq(Math.floor(Math.random()*$p2slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-
-// const $p2slot6 = $("#player2slot6 img");
-// const $p2slot6random = $p2slot6.eq(Math.floor(Math.random()*$p2slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
-// console.log($p2slot6random)
+}
 //--------------------------------------------2
 $(".ready1").on("click", () => {
     const player1Name = $('#player1-name').val()
@@ -288,18 +286,19 @@ $('#player2slot6 img').hide()
 
 // }
 
-//if player1slot1 ingredient is hit, onion-pic1 ++
-$(document).on("keydown", (e) => {
+//THE KEY CODE THAT IS BEING HIT FIRST IS THE ONLY ONE ACCUMULATING POINTS
+$(document).on("keydown", (e) => { 
+
     if (e.keyCode === 81) {
-        console.log('Q');
+        // console.log('Q');
         game.player1Buttons(1)
 
         //if image is there while key is pressed
         //score ++
     };
     if (e.keyCode === 87) {
+        // console.log('W')
         game.player1Buttons(2)
-        console.log('W')
 
     };
     if (e.keyCode === 69) {
@@ -316,28 +315,53 @@ $(document).on("keydown", (e) => {
     };
     if (e.keyCode == 68) {
         console.log('D')
+        game.player1Buttons(6)
     };
     //PLAYER 2 BUTTONS
     if (e.keyCode == 73) {
         console.log('I')
+        game.player2Buttons(1)
     };
     if (e.keyCode == 79) {
         console.log('O')
+        game.player2Buttons(2)
     };
     if (e.keyCode == 80) {
         console.log('P')
+        game.player2Buttons(3)
     };
     if (e.keyCode == 75) {
         console.log('K')
+        game.player2Buttons(4)
     };
     if (e.keyCode == 76) {
         console.log('L')
+        game.player2Buttons(5)
     };
     if (e.keyCode == 186) {
         console.log(';')
+        game.player2Buttons(6)
     }
 })
+// game.ready1 = true;
+// game.ready2 = true;
+// game.readyUp();
 
+// const $p2slot1 = $("#player2slot1 img");
+// const $p2slot1random = $p2slot1.eq(Math.floor(Math.random()*$p2slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
+// const $p2slot2 = $("#player2slot2 img");
+// const $p2slot2random = $p2slot2.eq(Math.floor(Math.random()*$p2slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
+// const $p2slot3 = $("#player2slot3 img");
+// const $p2slot3random = $p2slot3.eq(Math.floor(Math.random()*$p2slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
 
+// const $p2slot4 = $("#player2slot4 img");
+// const $p2slot4random = $p2slot4.eq(Math.floor(Math.random()*$p2slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+// const $p2slot5 = $("#player2slot5 img");
+// const $p2slot5random = $p2slot5.eq(Math.floor(Math.random()*$p2slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+// const $p2slot6 = $("#player2slot6 img");
+// const $p2slot6random = $p2slot6.eq(Math.floor(Math.random()*$p2slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+// console.log($p2slot6random)

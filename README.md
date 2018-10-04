@@ -19,57 +19,49 @@ for Plan A.
 	6. Users should be able to lose
 	Users should be able to restart game
 	
-	7. PLAYER 1 WILL HAVE
-		Q W E 
-		A S D 
-	
-	8. PLAYER 2 WILL HAVE
-		I O P
-		K L ;
 ------------------------------------------------
 2. INSTRUCTIONS
 
- Players will take turns hitting the ingredients whoever collects all the ingredients and feeds the hungry party, wins.
-
-
---------------------------------------------------
-
-3. GAME STATE
-
-Will create a GAME object
-create a Player class
-
-For every ingredient they hit, there will be images that display how many of each ingredient they have aquired.
-
-Players will have to collect x amount of each ingredient.
-
-Have a delay in which the ingredients pop up.
-
-The goal is to collect all the ingredients to feed the party and whoever feeds the party first wins. 
+ Players will take turns hitting the ingredients whoever collects the most ingredients and feeds the hungry party, wins.
+ 
+ PLAYER 1 WILL HAVE
+	Q W E 
+	A S D 
+PLAYER 2 WILL HAVE
+	I O P
+	J K L
 
 PLAYERS WILL HAVE THEIR OWN GAME BOARD.
-
-PLAYER 1 WILL HAVE
-Q W E 
-A S D 
-PLAYER 2 WILL HAVE
-I O P
-J K L
-
 
 --------------------------------------------------------------
 
 
+4. WIREFRAME 
+
+```
++-----------------------------------+          +------------------------------------+
+|  score:                  player1  |          |  score:                    player2 |
+|                                   |          |                                    |
+|                                   |          |                                    |
+|                                   |          |                                    |
+|                                   |          |                                    |
+|                                   |          |                                    |
+|                                   |          |                                    |
+|                                   |          |                                    |
+|   +-----+    +-----+    +-----+   |          |    +-----+    +------+    +-----+  |
+|   +-----+    +-----+    +-----+   |          |    +-----+    +------+    +-----+  |
+|                                   |          |                                    |
+|                                   |          |                                    |
+|   +-----+    +-----+    +-----+   |          |    +-----+    +-------+   +-----+  |
+|   +-----+    +-----+    +-----+   |          |    +-----+    +-------+   +-----+  |
+|                                   |          |                                    |
+|                                   |          |                                    |
+|                                   |          |                                    |
+|                                   |          |                                    |
+|                                   |          |                                    |
++-----------------------------------+          +------------------------------------+
+
+```
 
 
 
-
-
-
-
-
-Plan B. Juggling game, you have to keep one ball in the air for a certain amount of time. Once that time has been reached another ball will pop up and so on. I’m not sure if with would require a physics engine but I think it would be a cool idea.
-
-Plan C. Hammer game from carnival.
-
-Plan D. Food recipe game when you have some kind of food displayed at the top of the screen and then below will be a list of a bunch of ingredients that either match or don’t match. Player who matches the most food wins the game.
