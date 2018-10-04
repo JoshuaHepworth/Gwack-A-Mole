@@ -175,7 +175,7 @@ p > img {
 	/*position: absolute;*/
 	left: 42%;
 	bottom: 800px;
-	font-size: 50pt;
+	font-size: 30pt;
 	text-shadow:
 		-1px -1px 0 #000,
 		5px -1px 0 #000,
@@ -188,6 +188,21 @@ p > img {
 	bottom: 800px;
 	left: 42%;
 	font-size: 30pt;
+}
+audio {
+	color: red;
+	position: absolute;
+	left: 680px;
+	top: 200px;
+	height: 100px;
+	width: 200px;
+}
+.winner {
+	color: white;
+	position: absolute;
+	left: 575px;
+	top: 100px;
+	font-size: 40pt;
 }
 /*.instructions {
 	font-size: 20pt;

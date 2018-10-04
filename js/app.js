@@ -119,7 +119,7 @@ class Fruit {
 	// }
 }
 const game = {
-    timeout: 5,
+    // timeout: 5,
     ready1: false,
     ready2: false,
     interval: 0,
@@ -185,7 +185,6 @@ const game = {
         }, 1000)
     },
     startTimer() {
-        $('#count-down').hide()
 
         this.interval = setInterval(() => {
             this.timer++;
@@ -199,8 +198,15 @@ const game = {
             console.log(this.fruits)
             // console.log(this.fruits2)
 
-            if (this.timer === 30) {
+            if (this.timer === 10) {
                 $('#timer').text('TIMES UP!!!');
+                if(this.score < this.score2) {
+                    $('.winner').text('PLAYER 2 WINS')
+                } if(this.score > this.score2) {
+                    $('.winner').text('PLAYER 1 WINS')
+                } if(this.score === this.score2) {
+                    $('.winner').text('TIE GAME')
+                }
                 clearInterval(this.interval);
             }
         }, 1000);
