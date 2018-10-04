@@ -154,7 +154,9 @@ p > img {
 	background-color: black;
 }
 #total-points1 {
-	color: white;
+	color: red;
+	font-size: 25pt;
+	/*color: white;*/
 	/*position: fixed;*/
 	bottom: 230px;
 	left: 0%;
@@ -163,7 +165,8 @@ p > img {
 
 }
 #total-points2 {
-	color: white;
+	color: red;
+	font-size: 25pt;
 	/*position: fixed;*/
 	bottom: 230px;
 	left: 65%;

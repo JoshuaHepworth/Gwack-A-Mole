@@ -1,13 +1,10 @@
 # Project-1
 
-Plan A. ….Whack a (mole) like 'guacamole'. Instead of moles popping up the holes will pop up with randomly generated ingredients to make guacamole. Onions, tomatoes, avocados and chili peppers..maybe. two players will take turns battling to see who can make the guacamole the fastest. There will be a timer, and there will be a counter for how many of each ingredient they hit. Whoever can feed the party(the counter will be the party getting hungrier) first WINS!!!
-
-ɡwäkəˈmōlē
 
 http://peal.io/p/guacamole-song
 
 ------------------------------------------------
-for Plan A. 
+Gwack-A-Mole. 
 
 1. USER STORIES
 
