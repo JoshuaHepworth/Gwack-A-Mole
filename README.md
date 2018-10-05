@@ -4,9 +4,11 @@
 http://peal.io/p/guacamole-song
 
 ------------------------------------------------
-Gwack-A-Mole. 
+#Gwack-A-Mole. 
+##Game link: https://joshuahepworth.github.io/Gwack-A-Mole/
+--------------------------------------------------
 
-1. USER STORIES
+## USER STORIES
 
 	1. Users should be able to name their players
 	2. Users should be able to start the game
@@ -17,7 +19,7 @@ Gwack-A-Mole.
 	Users should be able to restart game
 	
 ------------------------------------------------
-2. INSTRUCTIONS
+## INSTRUCTIONS
 
  Players will take turns hitting the ingredients whoever collects the most ingredients and feeds the hungry party, wins.
  
@@ -33,7 +35,7 @@ PLAYERS WILL HAVE THEIR OWN GAME BOARD.
 --------------------------------------------------------------
 
 
-4. WIREFRAME 
+## WIREFRAME 
 
 ```
 +-----------------------------------+          +------------------------------------+
@@ -61,7 +63,7 @@ PLAYERS WILL HAVE THEIR OWN GAME BOARD.
 ```
 
 ----------------------------------------------------------------
-5. UPCOMING ADDITIONS
+## UPCOMING ADDITIONS
 
 	1. There will be ingredient icons display at the top of the screen instead of 'Score' to determine how many of each ingredient you have hit.
 
