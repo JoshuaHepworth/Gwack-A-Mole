@@ -60,5 +60,14 @@ PLAYERS WILL HAVE THEIR OWN GAME BOARD.
 
 ```
 
+----------------------------------------------------------------
+5. UPCOMING ADDITIONS
+
+	1. There will be ingredient icons display at the top of the screen instead of 'Score' to determine how many of each ingredient you have hit.
+
+	2. 'Play Again' button will be displayed after the game is over.
+
+	3. Players will have 3 rounds and it will get progressivley harder.
+
 
 
