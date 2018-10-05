@@ -198,7 +198,8 @@ const game = {
             console.log(this.fruits)
             // console.log(this.fruits2)
 
-            if (this.timer === 10) {
+            if (this.timer === 20) {
+                audio2.play()
                 $('#timer').text('TIMES UP!!!');
                 if(this.score < this.score2) {
                     $('.winner').text('WINNER')
@@ -219,10 +220,10 @@ const game = {
         // console.log(num, "<--comparing it to this")      
         if (this.fruits[0].slot === num) {
             this.score++;
-            audio.play();
+            audio.play()
             $('#total-points1').text('Score: ' + this.score);
 
-            console.log("-------------Huzzahhh !!!!")
+            // console.log("-------------Huzzahhh !!!!")
             // console.log(this.score)
       
         }
@@ -235,10 +236,11 @@ const game = {
         // console.log(num, "<--comparing it to this")      
         if (this.fruits2[0].slot === num) {
             this.score2++;
+            audio.play()
             console.log(this.fruits2[0].randomFruit);
             $('#total-points2').text('Score: ' + this.score2);
 
-            console.log("-------------Huzzahhh !!!!")
+            // console.log("-------------Huzzahhh !!!!")
             // console.log(this.score)
       
         }
@@ -252,7 +254,7 @@ const game = {
 //PLAYER 2 RANDOMLY GENERATES IMAGES
 }
 const audio = new Audio('http://peal.io/download/847x9')
-// audio.play();
+const audio2 = new Audio('http://peal.io/download/yq2hj')
 //--------------------------------------------2
 $(".ready1").on("click", () => {
     const player1Name = $('#player1-name').val()
