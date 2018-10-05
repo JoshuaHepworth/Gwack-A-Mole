@@ -139,6 +139,7 @@ const game = {
     readyUp() {
         if (this.ready1 === true && this.ready2 === true) {
             // this.countDown()
+            audioDrumRoll.play()
             this.start();
         }
     },
@@ -198,8 +199,8 @@ const game = {
             console.log(this.fruits)
             // console.log(this.fruits2)
 
-            if (this.timer === 20) {
-                audio2.play()
+            if (this.timer === 10) {
+                audioGuac.play();
                 $('#timer').text('TIMES UP!!!');
                 if(this.score < this.score2) {
                     $('.winner').text('WINNER')
@@ -219,11 +220,11 @@ const game = {
         // console.log(this.fruits[0].slot + " this is the number I am comparing my params to!")
         // console.log(num, "<--comparing it to this")      
         if (this.fruits[0].slot === num) {
+            audioCoin.play()
             this.score++;
-            audio.play()
             $('#total-points1').text('Score: ' + this.score);
 
-            // console.log("-------------Huzzahhh !!!!")
+            console.log("-------------Huzzahhh !!!!")
             // console.log(this.score)
       
         }
@@ -235,12 +236,12 @@ const game = {
         // console.log(this.fruits[0].slot + " this is the number I am comparing my params to!")
         // console.log(num, "<--comparing it to this")      
         if (this.fruits2[0].slot === num) {
+            audioCoin.play()
             this.score2++;
-            audio.play()
             console.log(this.fruits2[0].randomFruit);
             $('#total-points2').text('Score: ' + this.score2);
 
-            // console.log("-------------Huzzahhh !!!!")
+            console.log("-------------Huzzahhh !!!!")
             // console.log(this.score)
       
         }
@@ -253,8 +254,9 @@ const game = {
 
 //PLAYER 2 RANDOMLY GENERATES IMAGES
 }
-const audio = new Audio('http://peal.io/download/847x9')
-const audio2 = new Audio('http://peal.io/download/yq2hj')
+const audioDrumRoll = new Audio('http://peal.io/download/aq1ie')
+const audioGuac = new Audio('http://peal.io/download/yq2hj')
+const audioCoin = new Audio('http://peal.io/download/bd2mi')
 //--------------------------------------------2
 $(".ready1").on("click", () => {
     const player1Name = $('#player1-name').val()
@@ -358,3 +360,25 @@ $(document).on("keydown", (e) => {
         game.player2Buttons(6)
     }
 })
+// game.ready1 = true;
+// game.ready2 = true;
+// game.readyUp();
+
+// const $p2slot1 = $("#player2slot1 img");
+// const $p2slot1random = $p2slot1.eq(Math.floor(Math.random()*$p2slot1.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+// const $p2slot2 = $("#player2slot2 img");
+// const $p2slot2random = $p2slot2.eq(Math.floor(Math.random()*$p2slot2.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+// const $p2slot3 = $("#player2slot3 img");
+// const $p2slot3random = $p2slot3.eq(Math.floor(Math.random()*$p2slot3.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+// const $p2slot4 = $("#player2slot4 img");
+// const $p2slot4random = $p2slot4.eq(Math.floor(Math.random()*$p2slot4.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+// const $p2slot5 = $("#player2slot5 img");
+// const $p2slot5random = $p2slot5.eq(Math.floor(Math.random()*$p2slot5.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+
+// const $p2slot6 = $("#player2slot6 img");
+// const $p2slot6random = $p2slot6.eq(Math.floor(Math.random()*$p2slot6.length)).show().velocity('transition.bounceIn', 2000).fadeOut()
+// console.log($p2slot6random)
