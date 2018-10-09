@@ -98,7 +98,7 @@ class Fruit {
     		$(selector).hide().velocity('transition.bounceOut', 200)
             // $(selector2).hide().velocity('transition.bounceOut', 200)
     		
-    	}, 400)
+    	}, 800)
 
 
 
