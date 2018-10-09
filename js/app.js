@@ -199,7 +199,7 @@ const game = {
             console.log(this.fruits)
             // console.log(this.fruits2)
 
-            if (this.timer === 10) {
+            if (this.timer === 20) {
                 audioGuac.play();
                 $('#timer').text('TIMES UP!!!');
                 if(this.score < this.score2) {
