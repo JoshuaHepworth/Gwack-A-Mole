@@ -348,12 +348,13 @@ audio {
 	font-size: 30pt;
 
 }
-/*.instructions {
+.instructions {
 	font-size: 20pt;
 	position: fixed;
-	bottom: 10px;
+	bottom: 0px;
 	left: 0%;
-	width: 50%;
-    border: 3px solid #8AC007;
-    background-color: goldenrod;
-}*/
+	width: 100%;
+	color: white;
+    // border: 3px solid #8AC007;
+    background-color: black;
+ }
